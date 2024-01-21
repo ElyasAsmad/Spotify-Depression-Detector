@@ -82,25 +82,23 @@ class SpotifyMood:
 
         depression_prob = sadness_prob * stress_prob
 
-        probability = "Based on calculation, you have probability of {} to be depressed.".format(depression_prob)
-
         # print('\n')
 
         if depression_prob >= 0.75 :
             return {
                 'message': 'You are having severe depression! Please contact 1-800-82-0066 or email to info.miasa@gmail.com to recieve help and aid.',
                 'suggestion': 'Talk more to people',
-                'probability': probability
+                'probability': depression_prob
             }
         elif depression_prob >= 0.35 and depression_prob <0.75 :
             return {
                 'message': 'You are having mild depression. If you insist, you can contact 1-800-82-0066 or email to info.miasa@gmail.com to get more information about depression.',
                 'suggestion': 'Eat healthy food and find good vibes',
-                'probability': probability
+                'probability': depression_prob
             }
         else:
             return {
                 'message': 'Your depression type is normal',
                 'suggestion': 'Continue having good mental health by doing what you like.',
-                'probability': probability
+                'probability': depression_prob
             }
